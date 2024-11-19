@@ -1,5 +1,21 @@
-import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import React, { useState } from "react";
+import {
+    X,
+    Compass,
+    Lightbulb,
+    PenTool,
+    Rocket,
+    Facebook,
+    DollarSign,
+    Clipboard,
+    Mail,
+    Code,
+    Brush,
+    Film,
+    Target,
+    Aperture,
+    RefreshCw,
+} from "lucide-react";
 
 const Second = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -7,33 +23,67 @@ const Second = () => {
     const services = [
         {
             title: "Strategy",
-            description: "Brands become more human when they're accessible and responsible"
+            description: "Brands become more human when they're accessible and responsible",
+            icon: <Compass size={40} className="text-blue-600" />,
         },
         {
             title: "Concept",
-            description: "We create your strategical branding developing & develop a digital ecosystem"
+            description: "We create your strategic branding and develop a digital ecosystem",
+            icon: <Lightbulb size={40} className="text-yellow-500" />,
         },
         {
             title: "Design",
-            description: "We deliver effective digital brand strategies, identities, and platforms"
+            description: "We deliver effective digital brand strategies, identities, and platforms",
+            icon: <PenTool size={40} className="text-red-500" />,
         },
         {
             title: "Execution",
-            description: "We craft digital brand experiences people understand and embrace"
-        }
+            description: "We craft digital brand experiences people understand and embrace",
+            icon: <Rocket size={40} className="text-green-500" />,
+        },
     ];
 
     const serviceButtons = [
-        "Social Media Management",
-        "Pay per click Advertising",
-        "Paid Advertising",
-        "Content Marketing",
-        "Email Marketing",
-        "Web Development",
-        "Graphic Design, Iconography and Illustrations",
-        "Film Production, Ads and AVs",
-        "Campaign Planning",
-        "New Brand Launch and Rebranding"
+        {
+            title: "Social Media Management",
+            icon: <Facebook size={24} className="text-white-500" />,
+        },
+        {
+            title: "Pay per click Advertising",
+            icon: <DollarSign size={24} className="text-green-600" />,
+        },
+        {
+            title: "Paid Advertising",
+            icon: <Clipboard size={24} className="text-orange-500" />,
+        },
+        {
+            title: "Content Marketing",
+            icon: <RefreshCw size={24} className="text-purple-500" />,
+        },
+        {
+            title: "Email Marketing",
+            icon: <Mail size={24} className="text-teal-500" />,
+        },
+        {
+            title: "Web Development",
+            icon: <Code size={24} className="text-blue-700" />,
+        },
+        {
+            title: "Graphic Design, Iconography and Illustrations",
+            icon: <Brush size={24} className="text-pink-500" />,
+        },
+        {
+            title: "Film Production, Ads and AVs",
+            icon: <Film size={24} className="text-red-600" />,
+        },
+        {
+            title: "Campaign Planning",
+            icon: <Target size={24} className="text-gray-500" />,
+        },
+        {
+            title: "New Brand Launch and Rebranding",
+            icon: <Aperture size={24} className="text-yellow-600" />,
+        },
     ];
 
     return (
@@ -56,11 +106,15 @@ const Second = () => {
                                 key={index}
                                 className="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 min-h-[200px] flex flex-col justify-between"
                             >
-                                <div>
-                                    <h3 className="text-xl font-serif mb-4">
+                                <div className="flex flex-col items-center">
+                                    {/* Icon */}
+                                    <div className="mb-4">{service.icon}</div>
+                                    {/* Title */}
+                                    <h3 className="text-xl font-serif mb-4 text-center">
                                         {service.title}
                                     </h3>
-                                    <p className="text-gray-600 text-sm leading-relaxed">
+                                    {/* Description */}
+                                    <p className="text-gray-600 text-sm leading-relaxed text-center">
                                         {service.description}
                                     </p>
                                 </div>
@@ -110,9 +164,10 @@ const Second = () => {
                                     {serviceButtons.map((service, index) => (
                                         <button
                                             key={index}
-                                            className="bg-[#2196f3] hover:bg-blue-600 text-lg text-white py-6 px-6 rounded transition-colors duration-300 text-center"
+                                            className="bg-[#2196f3] hover:bg-blue-600 flex items-center gap-4 text-lg text-white py-6 px-6 rounded transition-colors duration-300 text-center"
                                         >
-                                            {service}
+                                            {service.icon}
+                                            {service.title}
                                         </button>
                                     ))}
                                 </div>
